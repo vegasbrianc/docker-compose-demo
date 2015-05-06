@@ -1,0 +1,18 @@
+web: 
+  build: .
+  ports:
+   - "5000"
+  volumes:
+   - .:/code
+  links:
+   - redis
+redis:
+  image: redis
+lb:
+  image: tutum/haproxy
+  links:
+   - web
+  ports: 
+   - "80:80"
+  environment:
+   - BACKEND_PORT=5000
