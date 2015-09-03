@@ -16,7 +16,7 @@ The  docker-compose command will pull the images from Docker Hub and then link t
 
     docker-compose ps
 
-Verify our service is running by either curlng the IP from the command line or view the IP from a web browser
+Verify our service is running by either curlng the IP from the command line or view the IP from a web browser. You will notice that the each time you run the command the number of times seen is stored in the Redis Database which increments. The hostname is also reported.
 
 ###Curling from the command line
     curl 0.0.0.0
@@ -28,6 +28,13 @@ Verify our service is running by either curlng the IP from the command line or v
 # Scaling
 Now comes the fun part of compose which is scaling. Let's scale our webservice from 1 instance to 5 instances.
 
-   docker-compose scale web=5
-This will now scale our web service container. Now run our curl command again on our web services
+    docker-compose scale web=5
+    
+This will now scale our webservice container. We now should run an update on our stack so the Loadbalancer is informed about the new webservice containers.
+
+    docker-compose up -d
+
+Now run our curl command again on our web services and we will now see the number of times increase and the hostname change. To get a deeper understanding tail the logs of the stack to watch what happens each time you access your webservices.
+
+    docker-compose logs
 
