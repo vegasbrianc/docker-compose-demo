@@ -1,18 +1,19 @@
-web: 
+web:
   build: .
-  ports:
-   - "5000"
   volumes:
    - .:/code
   links:
    - redis
+  expose:
+   - "5000"
 redis:
   image: redis
 lb:
   image: tutum/haproxy
   links:
    - web
-  ports: 
+  ports:
    - "80:80"
   environment:
    - BACKEND_PORT=5000
+   - BALANCE=roundrobin
