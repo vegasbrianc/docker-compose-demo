@@ -1,4 +1,4 @@
-# docker-compose-demo
+# docker-compose scaling web service demo
 A short demo on how to use docker-compose to create a Web Service connected to a load balancer and a Redis Database. 
 
 # Install
@@ -30,7 +30,7 @@ Now comes the fun part of compose which is scaling. Let's scale our webservice f
 
     docker-compose scale web=5
     
-This will now scale our webservice container. We now should run an update on our stack so the Loadbalancer is informed about the new webservice containers.
+This will now scale our web service container. We now should run an update on our stack so the Loadbalancer is informed about the new web service containers.
 
     docker-compose up -d
 
