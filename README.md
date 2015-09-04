@@ -26,7 +26,7 @@ Verify our service is running by either curlng the IP from the command line or v
     My Host name is 29c69c89417c
 
 # Scaling
-Now comes the fun part of compose which is scaling. Let's scale our webservice from 1 instance to 5 instances.
+Now comes the fun part of compose which is scaling. Let's scale our web service from 1 instance to 5 instances.
 
     docker-compose scale web=5
     
@@ -34,7 +34,7 @@ This will now scale our web service container. We now should run an update on ou
 
     docker-compose up -d
 
-Now run our curl command again on our web services and we will now see the number of times increase and the hostname change. To get a deeper understanding tail the logs of the stack to watch what happens each time you access your webservices.
+Now run our curl command again on our web services and we will now see the number of times increase and the hostname change. To get a deeper understanding tail the logs of the stack to watch what happens each time you access your web services.
 
     docker-compose logs
 
