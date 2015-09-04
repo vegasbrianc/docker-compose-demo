@@ -1,5 +1,5 @@
 # docker-compose scaling web service demo
-A short demo on how to use docker-compose to create a Web Service connected to a load balancer and a Redis Database. Be sure to check out my blog post on the full overview - 
+A short demo on how to use docker-compose to create a Web Service connected to a load balancer and a Redis Database. Be sure to check out my blog post on the full overview - [brianchristner.io](https://www.brianchristner.io/how-to-scale-a-docker-container-with-docker-compose/)
 
 # Install
 The instructions assume that you have already installed [Docker](https://docs.docker.com/installation/) and [Docker Compose](https://docs.docker.com/compose/install/). 
