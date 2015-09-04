@@ -1,5 +1,5 @@
 # docker-compose scaling web service demo
-A short demo on how to use docker-compose to create a Web Service connected to a load balancer and a Redis Database. 
+A short demo on how to use docker-compose to create a Web Service connected to a load balancer and a Redis Database. Be sure to check out my blog post on the full overview - 
 
 # Install
 The instructions assume that you have already installed [Docker](https://docs.docker.com/installation/) and [Docker Compose](https://docs.docker.com/compose/install/). 
@@ -38,3 +38,10 @@ Now run our curl command again on our web services and we will now see the numbe
 
     docker-compose logs
 
+Here's the output from my docker-compose logs after I curled my application 5 times so it is clear that the round-robin is sent to all 5 web service containers.
+
+    web_5   | 172.17.1.140 - - [04/Sep/2015 14:11:34] "GET / HTTP/1.1" 200 -
+    web_1   | 172.17.1.140 - - [04/Sep/2015 14:11:43] "GET / HTTP/1.1" 200 -
+    web_2   | 172.17.1.140 - - [04/Sep/2015 14:11:46] "GET / HTTP/1.1" 200 -
+    web_3   | 172.17.1.140 - - [04/Sep/2015 14:11:48] "GET / HTTP/1.1" 200 -
+    web_4   | 172.17.1.140 - - [04/Sep/2015 14:14:19] "GET / HTTP/1.1" 200 -
