@@ -30,9 +30,9 @@ Now comes the fun part of compose which is scaling. Let's scale our web service 
 
     docker-compose scale web=5
     
-This will now scale our web service container. We now should run an update on our stack so the Loadbalancer is informed about the new web service containers.
+This will now scale our web service container. We now should run an update on our stack so the Loadbalancer is informed about the new web service containers. We had to update the command to add --force-recreate as the loadbalance was not being updated.
 
-    docker-compose up -d
+    docker-compose up --force-recreate -d
 
 Now run our curl command again on our web services and we will now see the number of times increase and the hostname change. To get a deeper understanding tail the logs of the stack to watch what happens each time you access your web services.
 
