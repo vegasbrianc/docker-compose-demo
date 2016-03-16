@@ -10,6 +10,8 @@ In order to get started be sure to clone this project onto your Docker Host. Cre
 
 # How to get up and running
 Once you've cloned the project to your host we can now start our demo project. Easy! Navigate to the directory in which you cloned the project. Run the following commands from this directory 
+    
+
     docker-compose up -d
 
 The  docker-compose command will pull the images from Docker Hub and then link them together based on the information inside the docker-compose.yml file. This will create ports, links between containers, and configure applications as requrired. After the command completes we can now view the status of our stack
@@ -26,14 +28,10 @@ Verify our service is running by either curlng the IP from the command line or v
     My Host name is 29c69c89417c
 
 # Scaling
-Now comes the fun part of compose which is scaling. Let's scale our web service from 1 instance to 5 instances.
+Now comes the fun part of compose which is scaling. Let's scale our web service from 1 instance to 5 instances. This will now scale our web service container. We now should run an update on our stack so the Loadbalancer is informed about the new web service containers.
 
     docker-compose scale web=5
     
-This will now scale our web service container. We now should run an update on our stack so the Loadbalancer is informed about the new web service containers. We had to update the command to add --force-recreate as the loadbalance was not being updated.
-
-    docker-compose up --force-recreate -d
-
 Now run our curl command again on our web services and we will now see the number of times increase and the hostname change. To get a deeper understanding tail the logs of the stack to watch what happens each time you access your web services.
 
     docker-compose logs
