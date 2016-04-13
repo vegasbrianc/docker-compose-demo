@@ -50,7 +50,9 @@ Version 2 docker-compose file is now available. In order to use the 'docker-comp
 A benefit of running this load balancer is it automatically detects the coming and going of containers and doesn't require any changes.
 
 Run the below command to launch a version 2 compose project in the foreground.
+
     docker-compose -f docker-compose-v2.yml up
 
 Open another terminal window to scale and run:
+
     docker-compose -f docker-compose-v2.yml scale web=5
