@@ -43,3 +43,14 @@ Here's the output from my docker-compose logs after I curled my application 5 ti
     web_2   | 172.17.1.140 - - [04/Sep/2015 14:11:46] "GET / HTTP/1.1" 200 -
     web_3   | 172.17.1.140 - - [04/Sep/2015 14:11:48] "GET / HTTP/1.1" 200 -
     web_4   | 172.17.1.140 - - [04/Sep/2015 14:14:19] "GET / HTTP/1.1" 200 -
+    
+# Version 2 Compose File
+Version 2 docker-compose file is now available. In order to use the 'docker-compose-v2.yml' file the command changes slightly. Run the below command to launch a version 2 compose project. This project is also slightly changed as the jwilder/nginx doesn't support the v2 format. The v2 is now running the HAproxy from dockercloud.
+
+A benefit of running this load balancer is it automatically detects the coming and going of containers and doesn't require any changes.
+
+Run the below command to launch a version 2 compose project in the foreground.
+    docker-compose -f docker-compose-v2.yml up
+
+Open another terminal window to scale and run:
+    docker-compose -f docker-compose-v2.yml scale web=5
