@@ -1,10 +1,15 @@
 version: '2'
 services:
   web:
-    image: dockercloud/hello-world
-    ports:
-      - 8080
-
+   build: .
+   volumes:
+    - .:/code
+   links:
+    - redis
+   expose:
+    - "5000"
+  redis:
+    image: redis
   lb:
     image: dockercloud/haproxy
     links:
