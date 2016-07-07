@@ -46,9 +46,9 @@ Here's the output from my docker-compose logs after I curled my application 5 ti
     web_4   | 172.17.1.140 - - [04/Sep/2015 14:14:19] "GET / HTTP/1.1" 200 -
     
 # Version 2 Compose File
-Version 2 docker-compose file is now available. In order to use the 'docker-compose-v2.yml' file the command changes slightly. Run the below command to launch a version 2 compose project. This project is also slightly changed as the jwilder/nginx doesn't support the v2 format. The v2 is now running the HAproxy from dockercloud.
+Version 2 docker-compose file is now available. In order to use the 'docker-compose-v2.yml' file the command changes slightly. Run the below command to launch a version 2 compose project. This project is also slightly changed as the jwilder/nginx doesn't support the v2 format. The v2 is now running the HAproxy from dockercloud. A benefit of running the HAProxy from Dockercloud is it automatically detects the coming and going of containers and doesn't require any changes. Additionally, it also is compatabile with Docker Swarm.
 
-A benefit of running this load balancer is it automatically detects the coming and going of containers and doesn't require any changes.
+Additional changes in the V2 compose file includes overlay networking. Now the containers have front and back networks. This allows to VLAN how the containers connect to each other. For example, the Front network is public facing while the back network is only internal traffic between the application and database.
 
 Run the below command to launch a version 2 compose project in the foreground.
 
