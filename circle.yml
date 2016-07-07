@@ -6,9 +6,8 @@ test:
   pre:
     - docker-compose pull
     - docker-compose up -d
+    - docker-compose scale web=5
     - curl --retry 10 --retry-delay 5 -v http://localhost
-    - docker-compose stop
-    - docker-compose -f docker-compose-v2.yml up
     - curl --retry 10 --retry-delay 5 -v http://localhost
     
     #test
