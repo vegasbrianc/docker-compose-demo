@@ -1,7 +1,6 @@
 version: '2'
 services:
   web:
-<<<<<<< HEAD
     image: dockercloud/hello-world
     ports:
       - 8080
@@ -16,18 +15,6 @@ services:
     networks:
       - back-tier
 
-
-=======
-   build: .
-   volumes:
-    - .:/code
-   links:
-    - redis
-   expose:
-    - "5000"
-  redis:
-    image: redis
->>>>>>> 9ba75d0da2aead792bd28f289b63644a67c67c62
   lb:
     image: dockercloud/haproxy
     ports:
