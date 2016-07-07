@@ -6,15 +6,13 @@ web:
    - redis
   expose:
    - "5000"
-  environment:
-   - VIRTUAL_HOST=0.0.0.0
 redis:
   image: redis
 lb:
-  image: jwilder/nginx-proxy
+  image: dockercloud/haproxy
   links:
-   - web
+    - web
   volumes:
-   - /var/run/docker.sock:/tmp/docker.sock:ro
+    - /var/run/docker.sock:/var/run/docker.sock
   ports:
-   - "80:80"
+    - 80:80

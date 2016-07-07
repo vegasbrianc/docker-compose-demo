@@ -1,3 +1,4 @@
+[![Circle CI](https://circleci.com/gh/vegasbrianc/docker-compose-demo.svg?style=svg)](https://circleci.com/gh/vegasbrianc/docker-compose-demo)
 # docker-compose scaling web service demo
 A short demo on how to use docker-compose to create a Web Service connected to a load balancer and a Redis Database. Be sure to check out my blog post on the full overview - [brianchristner.io](https://www.brianchristner.io/how-to-scale-a-docker-container-with-docker-compose/)
 
