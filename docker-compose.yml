@@ -1,13 +1,13 @@
 web:
-  build: .
-  volumes:
-   - .:/code
-  links:
-   - redis
-  expose:
-   - "5000"
+  image: dockercloud/hello-world
+  ports:
+   - 8080
+
 redis:
   image: redis
+  links:
+   - web
+
 lb:
   image: dockercloud/haproxy
   links:
