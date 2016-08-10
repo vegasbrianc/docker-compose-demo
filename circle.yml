@@ -2,10 +2,14 @@ machine:
   services:
     - docker
 
+dependencies:
+  pre:
+    - sudo apt-get update
+    - sudo curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+    - sudo chmod +x /usr/local/bin/docker-compose
+
 test:
   pre:
-    - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
-    - sudo pip install docker-compose
     - docker-compose pull
     - docker-compose up -d
     - docker-compose scale web=5
