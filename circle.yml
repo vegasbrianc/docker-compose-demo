@@ -4,6 +4,8 @@ machine:
 
 dependencies:
   pre:
+    - sudo apt-get update
+    - sudo apt-get upgrade docker-engine
     - sudo pip install docker-compose
 
 test:
