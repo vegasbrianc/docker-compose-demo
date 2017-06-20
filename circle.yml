@@ -1,6 +1,5 @@
-machine:
-  services:
-    - docker
+version: 2
+jobs:
 
 build:
   docker:
