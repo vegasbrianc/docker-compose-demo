@@ -1,0 +1,37 @@
+{
+  "services": {
+    "lb": {
+      "Image": "dockercloud/haproxy@sha256:eb14214dd1dab2763e2c0d5724b6e92ee9484b89c94a485705c15fc159607bcf", 
+      "Networks": [
+        "front-tier", 
+        "back-tier"
+      ], 
+      "Ports": [
+        {
+          "Port": 80, 
+          "Protocol": "tcp"
+        }
+      ]
+    }, 
+    "redis": {
+      "Image": "redis@sha256:b50f15d427aea5b579f9bf972ab82ff8c1c47bffc0481b225c6a714095a9ec34", 
+      "Networks": [
+        "back-tier"
+      ]
+    }, 
+    "web": {
+      "Image": "dockercloud/hello-world@sha256:fe79a2cfbd17eefc344fb8419420808df95a1e22d93b7f621a7399fd1e9dca1d", 
+      "Networks": [
+        "front-tier", 
+        "back-tier"
+      ], 
+      "Ports": [
+        {
+          "Port": 8080, 
+          "Protocol": "tcp"
+        }
+      ]
+    }
+  }, 
+  "version": "0.1"
+}
