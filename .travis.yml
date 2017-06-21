@@ -1,0 +1,13 @@
+sudo: required
+
+services:
+    - docker
+test:
+  pre:
+    - docker-compose pull
+    - docker-compose up -d
+    - docker-compose scale web=5
+    - curl --retry 10 --retry-delay 5 -v http://localhost
+    - curl --retry 10 --retry-delay 5 -v http://localhost
+    
+    
