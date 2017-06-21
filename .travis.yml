@@ -3,10 +3,8 @@ sudo: required
 services:
     - docker
 
-before_install:
+before_script:
     - docker-compose pull
-
-install:
     - docker-compose up -d
     - docker ps
 
