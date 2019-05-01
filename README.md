@@ -6,9 +6,9 @@ The instructions assume that you have already installed [Docker](https://docs.do
 
 In order to get started be sure to clone this project onto your Docker Host. Create a directory on your host. Please note that the demo webservices will inherit the name from the directory you create. If you create a folder named test. Then the services will all be named test-web, test-redis, test-lb. Also, when you scale your services it will then tack on a number to the end of the service you scale. 
 
-    ```
+    
     git clone https://github.com/vegasbrianc/docker-compose-demo.git .
-    ```
+    
 
 # How to get up and running
 Once you've cloned the project to your host we can now start our demo project. Easy! Navigate to the directory in which you cloned the project. Run the following commands from this directory 
