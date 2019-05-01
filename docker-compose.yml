@@ -1,31 +1,25 @@
-version: '2'
+version: '3'
 services:
-  web:
-    image: dockercloud/hello-world
-    ports:
-      - 8080
-    networks:
-      - front-tier
-      - back-tier
+  whoami:
+    image: containous/whoami # A container that exposes an API to show its IP address
+    labels:
+      - "traefik.frontend.rule=Host:whoami.docker.localhost"
 
   redis:
     image: redis
-    links:
-      - web
+
     networks:
       - back-tier
 
-  lb:
-    image: dockercloud/haproxy
+  reverse-proxy:
+    image: traefik 
+    command: --api --docker --logLevel="DEBUG" --accesslog # Enables the web UI and tells Traefik to listen to docker
     ports:
-      - 80:80
-    links:
-      - web
-    networks:
-      - front-tier
-      - back-tier
+      - "80:80"     # The HTTP port
+      - "8080:8080" # The Web UI (enabled by --api)
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock 
+      - /var/run/docker.sock:/var/run/docker.sock # So that Traefik can listen to the Docker events
+ 
 
 networks:
   front-tier:
